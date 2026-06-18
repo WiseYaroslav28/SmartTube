@@ -47,6 +47,7 @@ import com.liskovsoft.smartyoutubetv2.tv.ui.playback.actions.PlaylistAddAction;
 import com.liskovsoft.smartyoutubetv2.tv.ui.playback.actions.PlaybackModeAction;
 import com.liskovsoft.smartyoutubetv2.tv.ui.playback.actions.SearchAction;
 import com.liskovsoft.smartyoutubetv2.tv.ui.playback.actions.SubscribeAction;
+import com.liskovsoft.smartyoutubetv2.tv.ui.playback.actions.TranslateAction;
 import com.liskovsoft.smartyoutubetv2.tv.ui.playback.actions.TwoStateAction;
 import com.liskovsoft.smartyoutubetv2.tv.ui.playback.actions.ThumbsDownAction;
 import com.liskovsoft.smartyoutubetv2.tv.ui.playback.actions.ThumbsUpAction;
@@ -116,6 +117,7 @@ public class VideoPlayerGlue extends MaxControlsVideoPlayerGlue<PlayerAdapter> i
         putAction(new PlaybackModeAction(context));
         putAction(new ChannelAction(context));
         putAction(new ClosedCaptioningAction(context));
+        putAction(new TranslateAction(context));
         putAction(new PlaylistAddAction(context));
         putAction(new SubscribeAction(context));
         putAction(new VideoInfoAction(context));
@@ -218,6 +220,7 @@ public class VideoPlayerGlue extends MaxControlsVideoPlayerGlue<PlayerAdapter> i
         }
         if (mPlayerTweaksData.isPlayerButtonEnabled(PlayerTweaksData.PLAYER_BUTTON_SUBTITLES)) {
             adapter.add(mActions.get(R.id.lb_control_closed_captioning));
+            adapter.add(mActions.get(R.id.action_voice_over_translation));
         }
         if (mPlayerTweaksData.isPlayerButtonEnabled(PlayerTweaksData.PLAYER_BUTTON_ADD_TO_PLAYLIST)) {
             adapter.add(mActions.get(R.id.action_playlist_add));
@@ -384,6 +387,15 @@ public class VideoPlayerGlue extends MaxControlsVideoPlayerGlue<PlayerAdapter> i
             return true;
         }
 
+        if (action != null) {
+            try {
+                String name = getContext().getResources().getResourceEntryName((int) action.getId());
+                Log.d(TAG, "dispatchAction: clicked action name = " + name + " (id = " + action.getId() + ")");
+            } catch (Exception e) {
+                Log.d(TAG, "dispatchAction: clicked action id = " + action.getId() + " (no name)");
+            }
+        }
+        Log.d(TAG, "dispatchAction: actionId=" + (action != null ? action.getId() : "null") + ", containsKey=" + (action != null && mActions.containsKey((int) action.getId())) + ", mActions keys: " + mActions.keySet().toString() + ", R.id.action_voice_over_translation=" + R.id.action_voice_over_translation);
         boolean handled = false;
 
         // Primary actions are handled manually.

@@ -93,7 +93,36 @@ public class SplashPresenter extends BasePresenter<SplashView> {
             initProxy();
             initVideoStateService();
             initStreamReminderService();
+            showSplashToast();
         }
+    }
+
+    private void showSplashToast() {
+        if (getContext() == null) {
+            return;
+        }
+        new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
+            try {
+                android.widget.Toast toast = android.widget.Toast.makeText(
+                        getContext(),
+                        "Модифицировано и улучшено для личного использования Yaroslav Wise",
+                        android.widget.Toast.LENGTH_LONG
+                );
+                toast.setGravity(android.view.Gravity.CENTER, 0, 0);
+                android.view.View view = toast.getView();
+                if (view != null) {
+                    android.widget.TextView textView = view.findViewById(android.R.id.message);
+                    if (textView != null) {
+                        textView.setTextSize(24f);
+                        textView.setGravity(android.view.Gravity.CENTER);
+                        textView.setTextColor(android.graphics.Color.WHITE);
+                    }
+                }
+                toast.show();
+            } catch (Exception e) {
+                Log.e(TAG, "Ошибка показа приветственного Toast", e);
+            }
+        });
     }
 
     private void runPerInstanceTasks() {
