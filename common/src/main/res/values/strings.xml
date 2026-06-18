@@ -756,4 +756,21 @@
         <item quantity="one">%s second</item>
         <item quantity="other">%s seconds</item>
     </plurals>
+
+    <string name="vot_title">Voice Translation (Yandex)</string>
+    <string name="vot_enable">Automatically translate new videos</string>
+    <string name="vot_pause_on_loading">Pause video while loading translation</string>
+    <string name="vot_voice">Voice</string>
+    <string name="vot_volume">Original video volume</string>
+    <string name="vot_volume_desc">Volume level of original video during voice translation</string>
+    <string name="vot_voice_alisa">Alisa (Female)</string>
+    <string name="vot_voice_jane">Alena (Female)</string>
+    <string name="vot_voice_zahar">Zahar (Male)</string>
+    <string name="vot_voice_key">Filipp (Male)</string>
+    <string name="vot_voice_ermil">Ermil (Male)</string>
+    <string name="vot_translation_volume">Translation volume</string>
+    <string name="vot_source_lang">Source language</string>
+    <string name="vot_source_lang_auto">Auto detect</string>
+    <string name="vot_use_lively">Use lively voices</string>
+    <string name="vot_use_proxy">Use proxy (bypass restrictions)</string>
 </resources>

@@ -748,4 +748,21 @@
         <item quantity="many">%s секунд</item>
         <item quantity="other">%s секунды</item>
     </plurals>
+
+    <string name="vot_title">Голосовой перевод (Яндекс)</string>
+    <string name="vot_enable">Автоматически переводить новые видео</string>
+    <string name="vot_pause_on_loading">Ставить видео на паузу при загрузке</string>
+    <string name="vot_voice">Голос озвучки</string>
+    <string name="vot_volume">Громкость оригинального видео</string>
+    <string name="vot_volume_desc">Уровень громкости оригинального видео при включенном переводе</string>
+    <string name="vot_voice_alisa">Алиса (Женский)</string>
+    <string name="vot_voice_jane">Алена (Женский)</string>
+    <string name="vot_voice_zahar">Захар (Мужской)</string>
+    <string name="vot_voice_key">Филипп (Мужской)</string>
+    <string name="vot_voice_ermil">Ермил (Мужской)</string>
+    <string name="vot_translation_volume">Громкость перевода</string>
+    <string name="vot_source_lang">Язык источника</string>
+    <string name="vot_source_lang_auto">Автоопределение</string>
+    <string name="vot_use_lively">Использовать живые голоса</string>
+    <string name="vot_use_proxy">Использовать прокси (обход ограничений)</string>
 </resources>
